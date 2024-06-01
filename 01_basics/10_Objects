@@ -1,0 +1,355 @@
+// // object creation
+// //singleton ---> made by constructor --->jab literals se nhi bnta
+// // Object.create({ })
+
+// const tinder = new Object();
+// tinder.id = "123abc";
+// tinder.name = "Samy";
+// tinder.isloggedin = false;
+// console.log(tinder);
+
+// //object literals
+
+// // to access the properties
+
+// //symbol square bracket se he hota hain
+// // const mySym = Symbol("key1")
+
+// // let rectangle = {
+// //     length: 1,
+// //     [mySym]: "mykey1",
+// //     "full name": "kshitij gupta",
+// //     //fucton are construct using variables
+// //     draw: function(){
+// //         console.log("i am drawing a rectangle");
+// //     }
+
+// // }
+
+// // console.log(rectangle)
+
+// //console.log(rectangle.length);
+// // console.log(rectangle["full name"])
+// // Rectangle.breadth
+// // rectangle.draw()
+
+// //to change the value
+// // rectangle.length = 3
+
+// //ab value change ni ho skta
+// // Object.freeze(rectangle);
+
+// //not a convenient way to create n similar objects
+
+// // let rectangle1 = {
+// //     length: 1,
+// //     breadth: 2,
+// //     draw: function () {
+// //         console.log("i am drawing a rectangle");
+// //     }
+// // };
+// // let rectangle2 = {
+// //     length: 1,
+// //     breadth: 2,
+// //     draw: function () {
+// //         console.log("i am drawing rectangele");
+// //     }
+// // };
+
+// // 2 ways
+
+// //1. factory fn
+
+// // function which create the object and then return the object
+// // function createRectangle(ln,br) {
+// //     let rectangle = {
+// //         length: ln,
+// //         breadth: br,
+// //         draw: function () {
+// //             console.log("i am drawing rectangele");
+// //         }
+// //     }
+// //     return rectangle
+// // }
+
+// // let rectangle2 = createRectangle(2, 3);
+// // let rectangle3 = createRectangle(4, 7);
+
+// // // pascal casing is must - AllStudentsAreGoing
+// // //2. constructon fn
+
+// // function Person(firstName, lastName, age) {
+// //     this.firstName = firstName;
+// //     this.lastName = lastName;
+// //     this.age = age;
+// //     this.greet = function() {
+// //         console.log("Hello, " + this.firstName);
+// //     };
+// // }
+
+// // let john = new Person("John", "Doe", 30);
+// // john.greet(); // Output: Hello, John
+// // function Rectangle( len, br) {
+// //     this.length = len;
+// //     this.breadth = br;
+// //     this.draw= function()
+// //     {
+// //         console.log("this is done by constructor function");
+// //     }
+// // };
+
+// // //constructing
+
+// // let rec = new Rectangle(3,10);
+
+// // let c = {
+// //     length: 11,
+// //     breadth: 12
+// // };
+
+// // function a() {
+// //     this.length = 1;
+// //     this.breadth = 2;
+// // };
+
+// // let b = a();
+
+// //objects inside objects
+
+//  const user = {
+//     email: "kshitijgupta08080@gmail.com",
+//     fullname : {
+//         nickname:{
+//             firstname: "kshitij",
+//             lastname : "Gupta"
+//         }
+//     }
+//  }
+//  console.log(user.fullname.nickname.firstname);
+
+// //optional chainigin
+
+//  console.log(user.fullname?.nickname.firstname);
+//  //go to notion in objects
+
+// //combining the objects - similar to array
+
+//  const obj1 = {1: "a" , 2: "b"}
+//  const obj2 = {3: "a" , 4: "b"}
+//  const obj3 = {5: "a" , 5: "b"}
+
+//  const obj4 = {obj1 , obj2}; //nooo ese ni
+
+// //1 way
+//  const obj4 = Object.assign({}, obj1 , obj2, obj3) // bracket ke bina bhi ho jayegaaa
+// //2 way
+// const obj4 = {...obj1 , ...obj2 , ...obj3}/
+// console.log(obj3)
+
+// //array of objects ---useful in projects
+
+// let friends = [
+//     {name : "sankalp",
+//       age: 22,
+//       trust: 100
+//     },
+//     {
+//         name: 'sreya' ,
+//         age: 18
+//     },
+//     {
+//         name: 'ashish',
+//         age: 20,
+//     }
+// ]
+// console.log(friends[0]);
+
+// //need all the keys - iska tume array mil jayega fir tum isko iterate kr skte ho and use kr skte ho bhot important hain
+
+// const arr = Object.keys(tinder); // it will return array of keys
+// const arr = Object.values(tinder); // it will return array of keys
+// const arr = Object.entries(tinder); // it will return array of array of key and value
+// //create freeze
+
+// console.log(tinder.hasOwnProperty('name')) //true false return
+//  console.log(arr);
+
+
+
+// //destructuring of an objectsssss----------------->>>>>>> //very importantttttttttttttttttt
+// // const course = {
+// //   name: "js in Hindi",
+// //   price: "999",
+// //   instructor: "hitesh",
+// // };
+// //isko 20 br print krna hain ese br br likhna ajeeb lgta hain
+// // ccourse.instructor
+
+// // const { instructor: kuchbhiname } = course;
+// // console.log(kuchbhiname);
+
+// // used in react
+// // const navBar = ({ name, age }) => {};
+
+// //FIND - IF YOU WANT TO FIND A OBJECT IN AN ARRAY
+
+// //how to find object in an array ------using find --- 1. function bracket mein he banao and 2. using constructor function
+// //calling function inside the function
+
+// let courses = [
+//     { name: 'kshitij', roll: 36 },
+//     { name: 'rahul', roll: 22 }
+//     , { name: 'sankalp', roll: 35, id: 2 }
+// ];
+// console.log(courses);
+// console.log(courses[2]);
+// let obj = courses.find(function (element) {
+//     return element.id == 2;
+// }
+// );
+// console.log(obj);
+
+// function callback(element) {
+//     return element.id == 2;
+// }
+// let obj2 = courses.find(callback);
+
+// console.log(obj2);
+
+// let inventory = [
+//     { name: "apples", quantity: 2 },
+//     { name: "bananas", quantity: 0 },
+//     { name: "cherries", quantity: 5 },
+// ];
+// function callback(inventory) {
+//     return inventory.name == "cherries";
+// }
+// console.log(inventory.find(callback));
+
+// // //chatGPT eg - customize behaviour
+// function doSomething(callback) {
+//     console.log("Doing something...");
+//     callback();
+// }
+// function customBehavior1() {
+//     console.log("Custom behavior 1");
+// }
+// function customBehavior2() {
+//     console.log("Custom behavior 2");
+// }
+
+// // // Using doSomething with different custom behaviors
+// doSomething(customBehavior1);
+// doSomething(customBehavior2)
+// // Function that takes another function as a parameter
+
+// //sorting in array and array of objects
+
+// let arr = [1, 10, 3, 5,4];
+// console.log(arr);
+// //array -->> a b c d  if positive return kroge --->  swap
+// function asc(a,b)
+// {
+//     return a-b;
+// }
+// array = array.sort(asc);
+// console.log(array);
+
+//  let friends = [
+//     {name : "sankalp",
+//       age: 22,
+//       trust: 100
+//     },
+//     {
+//         name: 'sreya' ,
+//         age: 18
+//     },
+//     {
+//         name: 'ashish',
+//         age: 20,
+//     }
+// ]
+// friends = friends.sort((f1 , f2) =>{
+//     return f1.age - f2.age
+// })
+// console.log(friends);
+
+// //with sorting on objects
+// let arrayOfObjects = [
+//     {name: 'kshitij', roll: 36},
+//     {name: 'siddhant' , roll: 34},
+//     { name: 'sid', roll: 2, section:'d' }
+// ];
+// console.log(arrayOfObjects);
+
+// function callbackhelp(a,b)
+// {
+//     return a.roll- b.roll;
+// }
+// //yha pe spread operator ki jrurat nhi hain
+// // let a = [...arrayOfObjects].sort(callbackhelp);
+// // let a = [...arrayOfObjects].sort((a,b)=> a - b);
+// // console.log(a);
+
+
+// console.log(b);
+// //shallow copy
+// // when new object is connected to an old object
+// //slice , spread and assign both do deep copy till level 1 only rest they pass the reference
+
+// //deep copy
+// //  when new object is disconnected to an old object
+// // JSON.parse(JSON.stringify(a));
+// // console.log(a);
+// // let b = JSON.parse(JSON.stringify(a)).filter((element) => {
+// //   return element.roll >= 24 && element.age < 5;
+// // });
+// // b[0].roll = 34;
+// // console.log(a);
+// // console.log(b);
+
+// // //mapping
+// // if you want to add common thing in each and every element and return it --- it returns an new array
+
+// // let array = [1, -2, 3, -4, 0, -5, 6];
+// // console.log(array);
+
+// // let a = array.slice().map(helpingfunction);
+
+// // function helpingfunction(a) {
+// //     return 'studentmno_   ' + a;
+// // }
+
+// //mapping with object
+// // function helpingfunction(num)
+// // {
+// //     return {value: num , id: 'student_no_' + num};
+// // }
+// // console.log(a);
+// // let b = array.slice().map(num =>
+
+// //  {
+// //     return { value: num, id: 'student_no_' + num }
+// //  } );
+
+// //reduce method
+// let shoppingCart = [
+//   { item: "chini", price: 100 },
+//   {
+//     item: "namak",
+//     price: 150,
+//   },
+//   {
+//     item: "dudh",
+//     price: 132,
+//   },
+// ];
+// //add  all the price
+// // let total = shoppingCart.reduce((accumulator, value) =>  accumulator + value.price , 0)
+// // console.log( "price "+total)
+
+// let total = 0;
+// for (const value of shoppingCart) {
+//   total += value.price;
+// }
+// console.log(total);
