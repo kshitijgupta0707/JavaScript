@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EVENTSSS</title>
+  </head>
+  <body>
+    <h1>Kshitij is building day by day</h1>
+
+    <button id="start">Start</button>
+    <button id="stop">STOP</button>
+
+    <script>
+      //not a part of core js
+      //this is a method which calls an api
+      //setInterval
+      //clearIntervval
+      //clearTimeout
+
+      const changeText = () => {
+        document.querySelector("h1").innerHTML = "He will do it";
+      };
+
+      const sayKshitij = () => {
+        console.log("kshitij");
+      };
+      setTimeout(sayKshitij, 7000);
+      let stored = setTimeout(changeText, 3000);
+
+      //need referece of set time out
+      // clearTimeout()
+
+      document.querySelector("#stop").addEventListener("click", (e) => {
+        clearTimeout(stored);
+      });
+      //   document.querySelector('start').addEventListener('click' , (e) =>{
+
+      //   })
+
+      setInterval(() => {
+        console.log("kshitij " + Date.now());
+      }, 1000);
+    </script>
+  </body>
+</html>

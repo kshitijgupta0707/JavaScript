@@ -8,11 +8,12 @@
 <body style="background-color: #414141; color: aliceblue;">
     <h2>Amazing image</h2>
     <div >
-        <ul id="images">
+         <ul id="images">
             <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
             <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
             <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
-            <li><img width="200px" id="owl" onclick="alert('owl')" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+ <!-- //onclick= "alert()"    -->
+         <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
             <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
             <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
         </ul>
@@ -36,27 +37,37 @@
 
 
     // third parameter kisliye h --- interview m btaoa
-    document.getElementById('owl').addEventListener('click', (e) =>{
+    // document.getElementById('owl').addEventListener('click', (e) =>{
 
-    } , false)
-
+    // } , false)
+  //WHAT WAS THE WIDHTH AND HEIGHT OF WINDOW WHERE IT WAS CLICKED
+  //WHAT WAS THE TIME WHEN HE CLICKED
+  //WHERE YOU CREATE VHA CIRECLE BN JAYEE
 
 
      // attachEvent()
     // jQuery - on
 
-    // type, timestamp, defaultPrevented
+    // type,
+    // timestamp,
+    // defaultPrevented --T/F
     // target, toElement, srcElement, currentTarget,
     // clientX, clientY, screenX, screenY
     // altkey, ctrlkey, shiftkey, keyCode
 
+
+    //EVENT PROPOGATION 
+    // DEFAULT -- BUBBLING - in se out
+
     // document.getElementById('images').addEventListener('click', function(e){
     //     console.log("clicked inside the ul");
     // }, false)
-
+    
     // document.getElementById('owl').addEventListener('click', function(e){
     //     console.log("owl clicked");
+    //     //ab yeh uppar end tak ni jayega toh uppar wala function ni chlega
     //     e.stopPropagation()
+        
     // }, false)
     
     // document.getElementById('google').addEventListener('click',function(e){
@@ -64,18 +75,38 @@
     //     e.stopPropagation()
     //     console.log("google clicked");
     // }, false)
+
+
+    //bhot sre event listeners ho gyee -- 200 images mein hogyi toh kya kroge
+    // document.getElementById('images').childNodes.forEach((element) =>{
+    //     element.addEventListener('click' , (event) =>{
+            
+    //         console.log(
+    //            "clicked"
+    //         )
+    //          element.remove();
+
+    //     })
+    // })
    
     
-    // document.querySelector('#images').addEventListener('click', function(e){
-    //     console.log(e.target.tagName);
-    //     if (e.target.tagName === 'IMG') {
-    //         console.log(e.target.id);
-    //         let removeIt = e.target.parentNode
-    //         removeIt.remove()
-    //     }
+    document.querySelector('#images').addEventListener('click', function(e){
+  
+
+        //if click on image even.target image dega
+        //muje li hatana h uska parent h vo
+        //event.target.parentNode
+        //e.target.tagName
+
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
     
         
-    // })
+    })
     
     //removeIt.parentNode.removeChild(removeIt)
 </script>
